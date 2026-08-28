@@ -10,8 +10,8 @@ export class GoogleClientStrategy extends PassportStrategy(
 ) {
   constructor(private readonly configService: ConfigService) {
     super({
-      clientID: configService.get<string>('GOOGLE_CLIENT_ID')!,
-      clientSecret: configService.get<string>('GOOGLE_CLIENT_SECRET')!,
+      clientID: configService.get<string>('GOOGLE_CLIENT_ID') || 'dummy_client_id',
+      clientSecret: configService.get<string>('GOOGLE_CLIENT_SECRET') || 'dummy_client_secret',
       callbackURL: configService.get<string>('GOOGLE_CALLBACK_URL_CLIENT'),
       scope: ['email', 'profile'],
     });
