@@ -41,7 +41,7 @@ const projects = [
     title: 'Proyecto Integrador Full Stack',
     description: 'La culminación del bootcamp. Una aplicación completa a nivel de producción, con arquitectura escalable, seguridad, despliegue en la nube y diseño responsivo.',
     icon: <Building size={20} />,
-    url: 'https://proyectofinal.netlify.app'
+    url: 'https://proyectofinal-sigma-one.vercel.app'
   },
   {
     id: 6,
@@ -49,7 +49,7 @@ const projects = [
     title: 'MailDash CRM',
     description: 'Panel de administración enfocado en el enriquecimiento de datos y automatización de correos electrónicos. Integración compleja de APIs y flujos automatizados.',
     icon: <Mail size={20} />,
-    url: 'https://maildashcrm.netlify.app'
+    url: 'maildash-crm.netlify.app'
   },
   {
     id: 7,
@@ -57,7 +57,7 @@ const projects = [
     title: 'SmartBot AI',
     description: 'Asistente técnico virtual potenciado por IA para orientar a usuarios sobre infraestructuras. Cuenta con manejo de contexto e integración de flujos de chatbot.',
     icon: <Bot size={20} />,
-    url: 'https://smartbotai.netlify.app'
+    url: 'smartbot-eiel.netlify.app'
   }
 ];
 
