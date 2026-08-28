@@ -72,11 +72,11 @@ export class ProductVariantService {
     const fullVariant = manager
       ? await manager.findOne(ProductVariant, {
           where: { id: savedVariant.id },
-          relations: ['product', 'color', 'variantSizes', 'variantSizes.size'],
+          relations: ['product', 'color', 'variantSizes', 'variantSizes.size'] as any,
         })
       : await this.variantRepository.findOne({
           where: { id: savedVariant.id },
-          relations: ['product', 'color', 'variantSizes', 'variantSizes.size'],
+          relations: ['product', 'color', 'variantSizes', 'variantSizes.size'] as any,
         });
 
     return instanceToPlain(fullVariant);
@@ -84,7 +84,7 @@ export class ProductVariantService {
 
   async findAll(): Promise<any> {
     const productVariants = await this.variantRepository.find({
-      relations: ['color', 'variantSizes', 'product'],
+      relations: ['color', 'variantSizes', 'product'] as any,
     });
     return instanceToPlain(productVariants);
   }
@@ -92,7 +92,7 @@ export class ProductVariantService {
   async findOne(id: string): Promise<any> {
     const variant = await this.variantRepository.findOne({
       where: { id },
-      relations: ['color', 'variantSizes', 'product'],
+      relations: ['color', 'variantSizes', 'product'] as any,
     });
     if (!variant)
       throw new NotFoundException(`Variant with ID ${id} not found`);
@@ -105,7 +105,7 @@ export class ProductVariantService {
   ): Promise<{ message: string }> {
     const variant = await this.variantRepository.findOne({
       where: { id },
-      relations: ['product', 'color'],
+      relations: { product: true, color: true },
     });
 
     if (!variant) {
@@ -151,7 +151,7 @@ export class ProductVariantService {
   async delete(id: string): Promise<{ message: string }> {
     const variant = await this.variantRepository.findOne({
       where: { id, deleted_at: IsNull()  },
-      relations: ['variantSizes'],
+      relations: { variantSizes: true },
     });
 
     if (!variant) {

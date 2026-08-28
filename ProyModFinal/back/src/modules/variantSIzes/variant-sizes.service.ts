@@ -84,7 +84,7 @@ export class VariantSizesService {
 
   async findAll() {
     const data = await this.variantSizeRepository.find({
-      relations: ['size', 'variantProduct'],
+      relations: { size: true, variantProduct: true },
     });
     return instanceToPlain(data);
   }
@@ -92,7 +92,7 @@ export class VariantSizesService {
   async findOne(id: string) {
     const variantSize = await this.variantSizeRepository.findOne({
       where: { id },
-      relations: ['size', 'variantProduct'],
+      relations: { size: true, variantProduct: true },
     });
     if (!variantSize)
       throw new NotFoundException(`VariantSize with id ${id} not found`);
@@ -102,7 +102,7 @@ export class VariantSizesService {
   async update(id: string, updateDto: UpdateVariantSizeDto): Promise<any> {
     const exists = await this.variantSizeRepository.findOne({
       where: { id },
-      relations: ['size', 'variantProduct'],
+      relations: { size: true, variantProduct: true },
     });
 
     if (!exists) {

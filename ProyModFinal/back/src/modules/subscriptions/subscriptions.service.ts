@@ -68,7 +68,7 @@ export class SubscriptionsService {
   async isClientMembershipActive(userId: string): Promise<boolean> {
     const user = await this.dataSource.getRepository(User).findOne({
       where: { id: userId },
-      relations: ['client'],
+      relations: { client: true },
     });
 
     if (!user || !user.client) {
@@ -302,7 +302,7 @@ export class SubscriptionsService {
     const email = stripeCustomer.email!;
     let user = await this.dataSource.manager.findOne(User, {
       where: { email },
-      relations: ['client'],
+      relations: { client: true },
     });
 
     if (user) return user;

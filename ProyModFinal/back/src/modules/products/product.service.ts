@@ -52,7 +52,7 @@ export class ProductService {
 
       const employee = await queryRunner.manager.findOne(Employee, {
       where: { user: { id: userId } },
-      relations: ['user'], // para que funcione correctamente
+      relations: ['user'] as any, // para que funcione correctamente
     });
 
     if (!employee) {
@@ -158,7 +158,7 @@ export class ProductService {
 
       const productWithVariants = await this.productRepository.findOne({
         where: { id: savedProduct.id },
-        relations: ['variants', 'variants.color', 'variants.variantSizes.size'],
+        relations: ['variants', 'variants.color', 'variants.variantSizes.size'] as any,
       });
 
       return instanceToPlain(productWithVariants);
@@ -188,7 +188,7 @@ export class ProductService {
         'brand',
         'variants.color',
         'variants.variantSizes.size',
-      ],
+      ] as any,
     });
     return instanceToPlain(products);
   }
@@ -202,7 +202,7 @@ export class ProductService {
         'brand',
         'variants.color',
         'variants.variantSizes.size',
-      ],
+      ] as any,
     });
     if (!product) {
       throw new NotFoundException(`Product with id ${id} not found`);
@@ -260,7 +260,7 @@ export class ProductService {
   async delete(id: string): Promise<{ message: string }> {
     const product = await this.productRepository.findOne({ 
       where: { id, deleted_at: IsNull() },
-      relations: ['variants'],
+      relations: ['variants'] as any,
       });
 
     if (!product) {
@@ -299,7 +299,7 @@ export class ProductService {
   ): Promise<any> {
     const subCategory = await this.subCategoryRepository.findOne({
       where: { slug: subCategorySlug },
-      relations: ['categories'],
+      relations: ['categories'] as any,
     });
 
     if (!subCategory) {
@@ -330,7 +330,7 @@ export class ProductService {
         'subCategory',
         'category',
         'brand',
-      ],
+      ] as any,
     });
 
     return instanceToPlain(products);

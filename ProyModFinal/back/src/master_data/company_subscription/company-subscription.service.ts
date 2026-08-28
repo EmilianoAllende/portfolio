@@ -59,14 +59,14 @@ export class CompanySubscriptionService {
 
   findAll(): Promise<CompanySubscription[]> {
     return this.companySubscriptionRepository.find({
-      relations: ['customer', 'membership_type'], //* corregido. PREGUNTAR:  aca la relation no deberia ser con globalMembershipType?
+      relations: ['customer', 'membership_type'] as any, //* corregido. PREGUNTAR:  aca la relation no deberia ser con globalMembershipType?
     });
   }
 
   async findOne(id: string): Promise<CompanySubscription> {
     const subscription = await this.companySubscriptionRepository.findOne({
       where: { id },
-      relations: ['customer', 'membership_type'], //* corregido. PREGUNTAR:  aca la relation no deberia ser con globalMembershipType?
+      relations: ['customer', 'membership_type'] as any, //* corregido. PREGUNTAR:  aca la relation no deberia ser con globalMembershipType?
     });
     if (!subscription) {
       throw new NotFoundException(
@@ -91,7 +91,7 @@ export class CompanySubscriptionService {
     return this.companySubscriptionRepository.findOne({
       where: { customer_id: customerId, status: 'active' },
       order: { end_date: 'DESC' },
-      relations: ['membership_type'],
+      relations: ['membership_type'] as any,
     });
   }
 
@@ -103,7 +103,7 @@ export class CompanySubscriptionService {
     await this.companySubscriptionRepository.update(id, updateDto);
     return this.companySubscriptionRepository.findOne({
       where: { id },
-      relations: ['customer', 'membership_type'],
+      relations: ['customer', 'membership_type'] as any,
     });
   }
 

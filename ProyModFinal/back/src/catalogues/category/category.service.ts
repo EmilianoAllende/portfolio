@@ -134,7 +134,7 @@ async delete(id: string): Promise<{ message: string }> {
   async findBySlug(slug: string): Promise<Category> {
     const category = await this.categoryRepository.findOne({
       where: { slug },
-      relations: ['subcategories'],
+      relations: ['subcategories'] as any,
     });
 
     if (!category) {

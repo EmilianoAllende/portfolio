@@ -214,7 +214,7 @@
 //     const repo = this.notificationRepository.manager.getRepository(Employee);
 
 //     const employees = await repo.find({
-//       relations: ['roles', 'user'],
+//       relations: ['roles', 'user'] as any,
 //     });
 
 //     return employees.filter((emp) =>

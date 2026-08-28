@@ -1,6 +1,6 @@
 import { registerAs } from '@nestjs/config';
 import { config as dotenvConfig } from 'dotenv';
-import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { join } from 'path';
 
@@ -10,7 +10,7 @@ dotenvConfig({ path: '.env' });
 //HACK Esta plantilla será usada por TenantConnectionService para crear conexiones dinámicas.
 //HACK NOTA: 'host', 'port', 'username', 'password', 'database' se sobreescribirán por 'url'
 //HACK en TenantConnectionService usando la `dbConnectionString` del cliente.
-export const tenantDbConfigTemplate: PostgresConnectionOptions = {
+export const tenantDbConfigTemplate: any = {
   type: 'postgres',
   host: process.env.DB_HOST || 'localhost',
   port: parseInt(process.env.DB_PORT || '5432', 10),
@@ -41,11 +41,10 @@ export const masterDbConfig: TypeOrmModuleOptions = {
   username: process.env.MASTER_DB_USERNAME || 'postgres',
   password: process.env.MASTER_DB_PASSWORD || '',
   database: process.env.MASTER_DB_DATABASE || '',
-  ssl: { rejectUnauthorized: false },
   entities: [Customer, CompanySubscription, GlobalMembershipType], //! Solo las entidades de la DB Maestra
   dropSchema: false,
   synchronize: false,
-  name: 'masterConnection',
+  // name: 'masterConnection',
 };
 
 // --- Exportación para Nest ConfigModule ---
@@ -70,7 +69,6 @@ export default registerAs('typeorm', () => typeormConfig);
 //   username: process.env.DB_USER || 'postgres',
 //   password: process.env.DB_PASSWORD || '',
 //   database: process.env.DB_NAME || '',
-  ssl: { rejectUnauthorized: false },
 //   // entities: ['dist/**/*.entity{.ts,.js}'],
 //   // entities: [__dirname + '/../**/*.entity.{ts,js}'],
 //   // migrations: ['dist/migrations/*{.ts,.js}'],
@@ -91,11 +89,10 @@ export default registerAs('typeorm', () => typeormConfig);
 //   username: process.env.MASTER_DB_USERNAME || 'postgres',
 //   password: process.env.MASTER_DB_PASSWORD || '',
 //   database: process.env.MASTER_DB_DATABASE || '',
-  ssl: { rejectUnauthorized: false },
 //   entities: [Customer, CompanySubscription, GlobalMembershipType],
 //   dropSchema: true,
 //   synchronize: true,
-//   name: 'masterConnection',
+//   // name: 'masterConnection',
 // };
 
 // // export const typeormConfig = config;

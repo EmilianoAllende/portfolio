@@ -57,7 +57,7 @@ export class AuditRepository {
 
   findAll() {
     return this.auditRepo.find({
-      relations: ['employee', 'employee.roles'],
+      relations: ['employee', 'employee.roles'] as any,
       order: { id: 'DESC' },
     });
   }
@@ -99,7 +99,7 @@ export class AuditRepository {
 //   async getPendingOrders(): Promise<Order[]> {
 //     return this.orderRepo.find({
 //       where: { audit: IsNull() },
-//       //relations: ['type_of_payment'], // relación correcta según tu entity
+//       //relations: ['type_of_payment'] as any, // relación correcta según tu entity
 //     });
 //   }
 
@@ -137,7 +137,7 @@ export class AuditRepository {
 
 //   findAll() {
 //     return this.auditRepo.find({
-//       relations: ['employee', 'employee.roles'],
+//       relations: ['employee', 'employee.roles'] as any,
 //       order: { id: 'DESC' },
 //     });
 //   }

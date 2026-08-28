@@ -71,13 +71,13 @@ export class CutRepository {
   }
 
   findAll() {
-    return this.cutRepo.find({ relations: ['employee', 'audits'] });
+    return this.cutRepo.find({ relations: ['employee', 'audits'] as any });
   }
 
   findOne(id: string) {
     return this.cutRepo.findOne({
       where: { id },
-      relations: ['employee', 'audits'],
+      relations: ['employee', 'audits'] as any,
     });
   }
 

@@ -23,7 +23,7 @@ export class CheckoutService {
         'details.variant.product',
         'client',
         'client.user',
-      ],
+      ] as any,
     });
 
     if (!order) {
@@ -58,7 +58,7 @@ export class CheckoutService {
         'details.variant.product',
         'client',
         'client.user',
-      ],
+      ] as any,
     });
 
     if (!order) throw new Error('Orden no encontrada');
@@ -221,7 +221,7 @@ export class CheckoutService {
 //         'details.variant.product',
 //         'client',
 //         'client.user',
-//       ],
+//       ] as any,
 //     });
 
 //     if (!order) {
@@ -256,7 +256,7 @@ export class CheckoutService {
 //         'details.variant.product',
 //         'client',
 //         'client.user',
-//       ],
+//       ] as any,
 //     });
 
 //     if (!order) throw new Error('Orden no encontrada');

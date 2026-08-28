@@ -9,7 +9,7 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 import { CustomerService } from '../../master_data/customer/customer.service';
 import { tenantDbConfigTemplate } from '../../config/typeorm'; //% plantilla de configuración del tenant
 import { getTenantContext } from '../context/tenant-context'; //% Importa el contexto del tenant
-import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+
 
 //TODO Aquí deben importar todas sus entidades del tenant(sus entidades pues).
 //! las tablas de relación ManyToMany (no son entidades en sí mismas),

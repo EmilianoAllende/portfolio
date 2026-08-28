@@ -24,7 +24,7 @@ export class CutsService {
 
     let employee = await this.repo.employeeRepo.findOne({
       where: { user: { id: userId } },
-      relations: ['user'],
+      relations: ['user'] as any,
     });
 
     if (!employee) {

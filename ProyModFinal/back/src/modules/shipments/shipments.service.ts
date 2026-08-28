@@ -19,14 +19,14 @@ export class ShipmentsService {
 
   async findAll() {
     return this.shipmentRepo.find({
-      relations: ['variants', 'variants.sizes'],
+      relations: { variants: { sizes: true } },
     });
   }
 
   async findOne(id: string) {
     const shipment = await this.shipmentRepo.findOne({
       where: { id },
-      relations: ['variants', 'variants.sizes'],
+      relations: { variants: { sizes: true } },
     });
 
     if (!shipment) {

@@ -25,7 +25,7 @@ export class UsersService {
   async softDeleteUser(id: string): Promise<void> {
     const user = await this.userRepository.findOne({
       where: { id },
-      relations: ['employee', 'employee.roles', 'client'],
+      relations: { employee: { roles: true }, client: true },
     });
 
     if (!user) {
@@ -59,7 +59,7 @@ export class UsersService {
       where: {
         deletedAt: Not(IsNull()),
       },
-      relations: ['employee', 'client', 'employee.roles'],
+      relations: { employee: { roles: true }, client: true },
     });
   }
 
@@ -67,7 +67,7 @@ export class UsersService {
     const user = await this.userRepository.findOne({
       where: { id },
       withDeleted: true,
-      relations: ['employee', 'client'],
+      relations: { employee: true, client: true },
     });
 
     if (!user) {

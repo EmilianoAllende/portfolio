@@ -28,7 +28,7 @@ export class EmployeesService {
     const trueEmployeeId = await this.idConverter.getEmployeeIdFromUserId(id)
     const employeeToUpdate = await this.employeeRepository.findOne({
       where: { id: trueEmployeeId },
-      relations: ['roles'],
+      relations: ['roles'] as any,
     });
 
     if (!employeeToUpdate) {

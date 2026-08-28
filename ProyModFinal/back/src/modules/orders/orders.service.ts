@@ -285,7 +285,7 @@ export class OrdersService {
     if (clientEmail) {
       client = await entityManager.findOne(Client, {
         where: { user: { email: clientEmail } },
-        relations: ['user'],
+        relations: ['user'] as any,
       });
     }
 
@@ -306,7 +306,7 @@ export class OrdersService {
           variantProduct: { id: item.variant_id },
           size: { id: item.size_id },
         },
-        relations: ['variantProduct', 'size'],
+        relations: ['variantProduct', 'size'] as any,
       });
 
       if (!variantSize) {
@@ -336,7 +336,7 @@ export class OrdersService {
       //     'variantProduct.product',
       //     'variantProduct.product.employee',
       //     'variantProduct.product.employee.user',
-      //   ],
+      //   ] as any,
       // });
 
       // if (updatedVariantSize) {
@@ -457,7 +457,7 @@ export class OrdersService {
     return this.dataSource.transaction(async (entityManager) => {
       const order = await entityManager.findOne(Order, {
         where: { id: orderId },
-        relations: ['details', 'details.variantSize', 'cancellation'],
+        relations: ['details', 'details.variantSize', 'cancellation'] as any,
       });
 
       if (!order) {
@@ -753,7 +753,7 @@ export class OrdersService {
 //     if (clientEmail) {
 //       client = await entityManager.findOne(Client, {
 //         where: { user: { email: clientEmail } },
-//         relations: ['user'],
+//         relations: ['user'] as any,
 //       });
 //     }
 
@@ -774,7 +774,7 @@ export class OrdersService {
 //           variantProduct: { id: item.variant_id },
 //           size: { id: item.size_id },
 //         },
-//         relations: ['variantProduct', 'size'],
+//         relations: ['variantProduct', 'size'] as any,
 //       });
 
 //       if (!variantSize) {
@@ -887,7 +887,7 @@ export class OrdersService {
 //     return this.dataSource.transaction(async (entityManager) => {
 //       const order = await entityManager.findOne(Order, {
 //         where: { id: orderId },
-//         relations: ['details', 'details.variant', 'cancellation'],
+//         relations: ['details', 'details.variant', 'cancellation'] as any,
 //       });
 
 //       if (!order) {

@@ -17,7 +17,7 @@ export class IdConverterService {
       where: {
         user: { id: userId },
       },
-      select: ['id'],
+      select: ['id'] as any,
     });
 
     if (!employeeRecord) {
