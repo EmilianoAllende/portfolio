@@ -13,7 +13,7 @@ export const AppDataSource = new DataSource({
   username: DB_USER,
   password: DB_PASSWORD,
   database: DB_NAME,
-  ssl: true,
+  ssl: { rejectUnauthorized: false },
   synchronize: true,
   //dropSchema: false,
   logging: false,
@@ -21,4 +21,5 @@ export const AppDataSource = new DataSource({
   subscribers: [],
   migrations: [],
 });
+
 
