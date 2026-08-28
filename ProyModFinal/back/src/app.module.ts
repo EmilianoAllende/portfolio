@@ -54,7 +54,7 @@ import { SharedModule } from './common/services/shared.module';
       inject: [ConfigService],
       useFactory: (config: ConfigService) => config.get('typeorm')!,
     }),
-    TypeOrmModule.forRoot(masterDbConfig),
+    TypeOrmModule.forRootAsync({ name: 'masterConnection', useFactory: () => masterDbConfig }),
     TenantConnectionModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],
