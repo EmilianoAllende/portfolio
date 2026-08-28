@@ -9,13 +9,9 @@ export class StripeService {
   private readonly logger = new Logger(StripeService.name);
 
   constructor(private readonly configService: ConfigService) {
-    const secretKey = this.configService.get<string>('STRIPE_SECRET_KEY');
+    let secretKey = this.configService.get<string>('STRIPE_SECRET_KEY');
 
-    if (!secretKey) {
-      throw new Error(
-        'La clave secreta de Stripe (STRIPE_SECRET_KEY) no está configurada.',
-      );
-    }
+    if (!secretKey) { this.logger.warn('STRIPE_SECRET_KEY no configurada. Usando clave falsa para evitar colapso de inicio.'); secretKey = 'dummy_stripe_key'; }
 
     this.stripe = new Stripe(secretKey, {
       apiVersion: '2025-08-27.basil' as any,
