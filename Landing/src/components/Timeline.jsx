@@ -33,7 +33,7 @@ const projects = [
     title: 'E-Commerce Frontend',
     description: 'Desarrollo de una interfaz de tienda en línea moderna utilizando React (Next.js), gestión de estado global y optimización de rendimiento.',
     icon: <MonitorPlay size={20} />,
-    url: 'https://proymod4.netlify.app'
+    url: 'https://proymod4.vercel.app'
   },
   {
     id: 5,
