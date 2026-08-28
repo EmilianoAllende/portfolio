@@ -1,4 +1,4 @@
-import axios from "axios";
+﻿import axios from "axios";
 import { RegisterData } from "@/interfaces/RegisterData";
 
 export default async function register(registerForm: RegisterData) {
