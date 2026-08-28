@@ -36,7 +36,7 @@ const Sidebar = ({
     isCollapsed,
     onToggle,
 }) => {
-    const [isMailDash CRMOpen, setIsMailDash CRMOpen] = useState(true);
+    const [isMailDashCRMOpen, setIsMailDashCRMOpen] = useState(true);
 
     // Solo mostramos Admin y Métricas Usuario a administradores y superadministradores
     const isAdminOrSuper = currentUser?.rol === "admin" || currentUser?.rol === "superadmin";
@@ -87,7 +87,7 @@ const Sidebar = ({
         standaloneTabs.push(adminTab);
     }
 
-    const isMailDash CRMActive = notasCanTabs.some((tab) => tab.id === activeView);
+    const isMailDashCRMActive = notasCanTabs.some((tab) => tab.id === activeView);
 
     const renderTabButton = (tab) => {
         const isDisabled = tab.id === "editor" && !selectedOrg;
@@ -149,15 +149,15 @@ const Sidebar = ({
             <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
                 {!isCollapsed && (
                     <button
-                        onClick={() => setIsMailDash CRMOpen((prev) => !prev)}
+                        onClick={() => setIsMailDashCRMOpen((prev) => !prev)}
                         className={`flex items-center w-full gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-150 ease-in-out
-                        ${isMailDash CRMActive
+                        ${isMailDashCRMActive
                                 ? "bg-blue-600 text-white"
                                 : "text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"
                             }`}>
                         <Database size={18} className="flex-shrink-0" />
                         <span className="flex-1 text-left overflow-hidden whitespace-nowrap">MailDash CRM</span>
-                        {isMailDash CRMOpen ? (
+                        {isMailDashCRMOpen ? (
                             <ChevronUp size={16} className="flex-shrink-0" />
                         ) : (
                             <ChevronDown size={16} className="flex-shrink-0" />
@@ -167,7 +167,7 @@ const Sidebar = ({
 
                 {isCollapsed && notasCanTabs.map((tab) => renderTabButton(tab))}
 
-                {!isCollapsed && isMailDash CRMOpen && (
+                {!isCollapsed && isMailDashCRMOpen && (
                     <div className="pl-3 space-y-1 border-l border-slate-200 dark:border-slate-700 ml-3">
                         {notasCanTabs.map((tab) => renderTabButton(tab))}
                     </div>
