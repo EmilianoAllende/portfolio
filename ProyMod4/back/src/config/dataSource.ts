@@ -1,4 +1,4 @@
-import { DataSource } from "typeorm";
+﻿import { DataSource } from "typeorm";
 import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER } from "./envs";
 import { User } from "../entities/User";
 import { Credential } from "../entities/Credential";
@@ -13,6 +13,7 @@ export const AppDataSource = new DataSource({
   username: DB_USER,
   password: DB_PASSWORD,
   database: DB_NAME,
+  ssl: true,
   synchronize: true,
   //dropSchema: false,
   logging: false,
@@ -20,3 +21,4 @@ export const AppDataSource = new DataSource({
   subscribers: [],
   migrations: [],
 });
+
