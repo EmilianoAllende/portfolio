@@ -9,7 +9,8 @@ const projects = [
     title: 'Landing Page Estática',
     description: 'Mi primer proyecto integrador. Una landing page estática demostrando fundamentos sólidos en HTML y CSS puro, maquetación semántica y diseño responsivo.',
     icon: <Code size={20} />,
-    url: 'https://proymod1.netlify.app'
+    url: 'https://proymod1.netlify.app',
+    technologies: ['HTML', 'CSS', 'Vanilla JS']
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const projects = [
     title: 'Movies Tracker (Front & Back)',
     description: 'Aplicación web interactiva para buscar y gestionar películas. Frontend dinámico con JavaScript vainilla y un backend robusto para manejar la información.',
     icon: <Film size={20} />,
-    url: 'https://proymod2.netlify.app'
+    url: 'https://proymod2.netlify.app',
+    technologies: ['Express', 'Mongoose', 'Webpack', 'Vanilla JS']
   },
   {
     id: 3,
@@ -25,7 +27,8 @@ const projects = [
     title: 'Gestor de Turnos',
     description: 'Sistema completo con autenticación y base de datos para la gestión de turnos, construido integrando React en el frontend y Node.js en el backend.',
     icon: <Calculator size={20} />,
-    url: 'https://proymod3.netlify.app'
+    url: 'https://proymod3.netlify.app',
+    technologies: ['React', 'Redux', 'Express', 'TypeORM', 'PostgreSQL']
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ const projects = [
     title: 'E-Commerce Frontend',
     description: 'Desarrollo de una interfaz de tienda en línea moderna utilizando React (Next.js), gestión de estado global y optimización de rendimiento.',
     icon: <MonitorPlay size={20} />,
-    url: 'https://proymod4.vercel.app'
+    url: 'https://proymod4.vercel.app',
+    technologies: ['Next.js', 'Tailwind CSS', 'Zustand']
   },
   {
     id: 5,
@@ -41,7 +45,8 @@ const projects = [
     title: 'Proyecto Integrador Full Stack',
     description: 'La culminación del bootcamp. Una aplicación completa a nivel de producción, con arquitectura escalable, seguridad, despliegue en la nube y diseño responsivo.',
     icon: <Building size={20} />,
-    url: 'https://proyectofinal-sigma-one.vercel.app'
+    url: 'https://proyectofinal-sigma-one.vercel.app',
+    technologies: ['NestJS', 'TypeORM', 'Next.js', 'PostgreSQL']
   },
   {
     id: 6,
@@ -49,7 +54,8 @@ const projects = [
     title: 'MailDash CRM',
     description: 'Panel de administración enfocado en el enriquecimiento de datos y automatización de correos electrónicos. Integración compleja de APIs y flujos automatizados.',
     icon: <Mail size={20} />,
-    url: 'https://maildash-crm.netlify.app'
+    url: 'https://maildash-crm.netlify.app',
+    technologies: ['React 19', 'Tailwind CSS', 'Recharts', 'N8N']
   },
   {
     id: 7,
@@ -57,7 +63,8 @@ const projects = [
     title: 'SmartBot AI',
     description: 'Asistente técnico virtual potenciado por IA para orientar a usuarios sobre infraestructuras. Cuenta con manejo de contexto e integración de flujos de chatbot.',
     icon: <Bot size={20} />,
-    url: 'https://smartbot-eiel.netlify.app'
+    url: 'https://smartbot-eiel.netlify.app',
+    technologies: ['HTML', 'CSS', 'JavaScript']
   }
 ];
 

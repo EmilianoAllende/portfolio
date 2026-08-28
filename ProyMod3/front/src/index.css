@@ -2,7 +2,7 @@
   font-family: "Lato", sans-serif;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #34ffc981;
+  background-color: #08080c;
 
 }
 
@@ -16,3 +16,21 @@ a:hover {
   color: #8d53f2;
 }
 
+
+
+/* --- PORTFOLIO DARK MODE UNIFICATION --- */
+body, html {
+    background-color: #08080c !important;
+    color: #ffffff !important;
+}
+* {
+    border-color: rgba(255,255,255,0.08);
+}
+a, button {
+    color: #7c3aed;
+}
+/* General card / section backgrounds */
+.main, .header, .aside, .content, .footer, .about, .section, .form-body, .form, .imagesContainer, .card {
+    background-color: #121218 !important;
+    color: #9ca3af !important;
+}

@@ -274,3 +274,20 @@ a:link {
     border: 1px solid rgba(105, 105, 105, 0.397);
     border-radius: 10px;
 }
+
+/* --- PORTFOLIO DARK MODE UNIFICATION --- */
+body, html {
+    background-color: #08080c !important;
+    color: #ffffff !important;
+}
+* {
+    border-color: rgba(255,255,255,0.08);
+}
+a, button {
+    color: #7c3aed;
+}
+/* General card / section backgrounds */
+.main, .header, .aside, .content, .footer, .about, .section, .form-body, .form, .imagesContainer, .card {
+    background-color: #121218 !important;
+    color: #9ca3af !important;
+}
