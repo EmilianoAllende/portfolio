@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBot AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* Fondo con imagen alineada a la izquierda y centrada verticalmente */
+            background: url('gran_canaria.png') left center/cover no-repeat fixed;
+            /* Color de respaldo si la imagen no carga */
+            background-color: #0b1d2a;
+            display: flex;
+            justify-content: flex-end; /* Alinea el contenido del body a la derecha */
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .chat-container {
+            width: 500px;
+            max-width: 90%;
+            height: 85vh; /* 75% del alto de la ventana */
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin-right: 5%; /* Espacio desde el borde derecho */
+        }
+        .chat-header {
+            background: rgba(5, 39, 72, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .chat-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 400px;
+            border-bottom: 1px solid #eee;
+        }
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .user-message {
+            align-items: flex-end;
+        }
+        .bot-message {
+            align-items: flex-start;
+        }
+        .user-message .content {
+            background-color: rgba(13, 110, 253, 0.16);
+            color: #0f172a;
+            padding: 10px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            max-width: 80%;
+        }
+        .bot-message .content {
+            background-color: rgba(255, 255, 255, 0.70);
+            color: #0f172a;
+            padding: 10px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            max-width: 80%;
+            text-align: left;
+        }
+        .municipio-selector-container {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+            background-color: rgba(255, 255, 255, 0.50);
+        }
+        .municipio-selector-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        .municipio-selector-container select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            background-color: white;
+        }
+        .chat-input {
+            padding: 15px;
+            display: flex;
+            border-top: 1px solid rgba(255, 255, 255, 0.35);
+        }
+        .chat-input input {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 1em;
+            outline: none;
+        }
+        .chat-input button {
+            background-color: #0b5fa4;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background-color: #8e8e93;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 2px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">
+        SmartBot AI
+    </div>
+    <div class="chat-box" id="chat-box">
+        <div class="message bot-message">
+            <div class="content">¡Hola! Soy tu asistente técnico virtual. Por favor, selecciona un área antes de empezar tu consulta sobre el Sistema de Infraestructuras y Equipamientos (SIE).</div>
+        </div>
+    </div>
+    
+    <div class="municipio-selector-container">
+        <label for="municipio-select">Municipio de Consulta:</label>
+        <select name="municipios" id="municipio-select">
+            <option value="" disabled selected>Selecciona un municipio...</option>
+            <option value="35001">Agaete</option>
+            <option value="35002">Agüimes</option>
+            <option value="35005">Artenara</option>
+            <option value="35006">Arucas</option>
+            <option value="35007">Firgas</option>
+            <option value="35009">Gáldar</option>
+            <option value="35010">Ingenio</option>
+            <option value="35020">La Aldea de San Nicolás</option>
+            <option value="35016">Las Palmas de Gran Canaria</option>
+            <option value="35012">Mogán</option>
+            <option value="35013">Moya</option>
+            <option value="35019">San Bartolomé de Tirajana</option>
+            <option value="35021">Santa Brígida</option>
+            <option value="35022">Santa Lucía de Tirajana</option>
+            <option value="35023">Santa María de Guía de Gran Canaria</option>
+            <option value="35025">Tejeda</option>
+            <option value="35026">Telde</option>
+            <option value="35027">Teror</option>
+            <option value="35029">Valleseco</option>
+            <option value="35031">Valsequillo de Gran Canaria</option>
+            <option value="35032">Vega de San Mateo</option>
+        </select>
+    </div>
+    
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Escribe tu consulta...">
+        <button id="send-button">Enviar</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const municipioSelect = document.getElementById('municipio-select');
+
+        const webhookUrl = 'https://n8n.icc-e.org/webhook/eiel';
+
+        // --- FUNCIÓN MODIFICADA PARA AÑADIR MENSAJES Y EL INDICADOR ---
+        const addMessage = (content, sender, isTyping = false) => {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
+            
+            const contentElement = document.createElement('div');
+            contentElement.classList.add('content');
+            
+            if (isTyping) {
+                contentElement.classList.add('typing-indicator');
+                contentElement.innerHTML = '<span></span><span></span><span></span>';
+                // Asignamos un ID único al indicador para poder encontrarlo y eliminarlo después
+                messageElement.id = 'typing-indicator-message';
+            } else {
+                contentElement.innerText = content;
+            }
+            
+            messageElement.appendChild(contentElement);
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        };
+
+        const removeTypingIndicator = () => {
+            const indicator = document.getElementById('typing-indicator-message');
+            if (indicator) {
+                chatBox.removeChild(indicator);
+            }
+        };
+
+        const sendMessage = async () => {
+            const message = userInput.value.trim();
+            const municipio = municipioSelect.value;
+
+            if (!municipio) {
+                addMessage('Por favor, selecciona un municipio antes de enviar tu consulta.', 'bot');
+                return;
+            }
+
+            if (!message) return;
+
+            addMessage(message, 'user');
+            userInput.value = '';
+
+            // --- AÑADIMOS EL INDICADOR DE "PENSANDO" ---
+            addMessage('', 'bot', true);
+
+            try {
+                // --- MOCK LOGIC START ---
+                // Simulamos latencia de red (1.5 segundos)
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // --- ELIMINAMOS EL INDICADOR ANTES DE MOSTRAR LA RESPUESTA ---
+                removeTypingIndicator();
+
+                let botText = 'La información para esa consulta no está disponible en este momento en la base de datos del SIE. ¿Te puedo ayudar con algo más, como infraestructura de agua o educación?';
+                const lowerMsg = message.toLowerCase();
+
+                if (lowerMsg.includes('abastecimiento') || lowerMsg.includes('agua')) {
+                    botText = `Para la región seleccionada, se registran 3 depósitos principales de abastecimiento de agua con una capacidad total adecuada para la población, y la red de distribución se encuentra en buen estado general según la última revisión del SIE.`;
+                } else if (lowerMsg.includes('saneamiento') || lowerMsg.includes('basura') || lowerMsg.includes('vertedero')) {
+                    botText = `El sistema de saneamiento cubre al 92% de los núcleos poblacionales. Existen 2 estaciones de bombeo de aguas residuales y un vertedero municipal documentado.`;
+                } else if (lowerMsg.includes('equipamiento') || lowerMsg.includes('colegio') || lowerMsg.includes('escuela')) {
+                    botText = `En el apartado de equipamientos, el municipio cuenta con 5 centros educativos (entre escuelas infantiles y colegios de primaria) y 2 instalaciones deportivas municipales.`;
+                } else if (lowerMsg.includes('hola') || lowerMsg.includes('saludos')) {
+                    botText = '¡Hola de nuevo! Estoy listo para responder tus consultas sobre infraestructuras y equipamientos (agua, saneamiento, educación, etc.). ¿Qué deseas saber?';
+                } else if (lowerMsg.includes('gracias')) {
+                    botText = '¡De nada! Si tienes otra pregunta, aquí estaré.';
+                }
+                
+                addMessage(botText, 'bot');
+                // --- MOCK LOGIC END ---
+
+            } catch (error) {
+                // --- SI HAY UN ERROR, TAMBIÉN ELIMINAMOS EL INDICADOR ---
+                removeTypingIndicator();
+                console.error('Error en el mock:', error);
+                addMessage('Lo siento, ha ocurrido un error interno de simulación.', 'bot');
+            }
+        };
+
+        sendButton.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

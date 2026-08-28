@@ -1,0 +1,7 @@
+1. Como usuario invitado quiero poder registrarme y crear una cuenta nueva.
+2. Como usuario registrado quiero poder iniciar sesión con mis credenciales.
+3. Como usuario registrado quiero poder reservar un turno.
+4. Como usuario registrado quiero poder cerrar sesión cuando no seguiré usando la plataforma.
+5. Como usuario quiero poder ver mi historial de turnos.
+6. Como usuario quiero poder cargar una foto de perfil.
+7. Como usuario quiero que me llegue un mail con 

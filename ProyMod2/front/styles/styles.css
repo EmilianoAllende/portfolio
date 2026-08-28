@@ -1,0 +1,276 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body, html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#indexHTMLBody {
+    background-image:url("./assets/BG_image.jpg");
+    background-size:cover;
+}
+
+.main {
+    background-color: rgb(158, 70, 70);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    background-color: rgb(0, 199, 133);
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 3.9em;
+}
+
+.logoText {
+    height: 3.1em;
+}
+
+.aside {
+    background-color: rgb(185, 175, 38);
+    padding: 5px;
+}
+
+.content {
+    background-color: rgb(37, 139, 64);
+    justify-self: center;
+}
+
+.about {
+    background-color: rgb(0, 181, 181);
+    max-width: 50em;
+    margin: 1rem;
+    padding: 1rem 1rem 0rem;
+
+    h2 {
+        text-align: center;
+    }
+    
+    p {
+        text-align: justify;
+    }
+}
+
+.filmsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#moviesContainer {
+    display: grid;
+    gap: 1.5rem;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+}
+
+.card {
+    justify-self: center;
+    height: auto;
+    background-color: royalblue;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 6%;
+    display:flex;
+    flex-direction: column;
+    width: 13.7em;
+
+    h4 {
+        text-align: center;
+        width: auto;
+    }
+
+    img {
+        width: 10em;
+        align-self: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: yellow;
+    }
+
+    p {
+        color:rgb(46, 202, 49);
+    }
+
+    &:hover {
+        background-color: rgb(18, 41, 124);
+        transform: scale(1.07);
+    }
+}
+
+.footer {
+    background-color: slategrey;
+}
+
+.form-body {
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addForm {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    border-radius: 6%;
+}
+
+.form {
+    background-color: royalblue;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/** STATICS */
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30px;
+    color: #000000;
+}
+
+.subtitle {
+    font-size: 3em;
+    color: blue;
+}
+
+.section {
+    background-color: rgb(245, 207, 147);
+    border: 2px solid red;
+    max-width: 80em;;
+    padding: 1.5em;
+    margin-bottom: 0.4em;
+    border-radius: 4%;
+    transition: 1.3s;
+    text-align: center;
+}
+
+.btn {
+    color: springgreen;
+}
+
+.imagesContainer {
+    background-color: crimson;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 0.6em;
+    padding: 1em 0em 0.4em 0em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.imgContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    text-align: justify;
+}
+
+.imgCuerpo {
+    width: 20em;
+    border: solid white;
+    gap: 0.7em;
+}
+
+.epigraph {
+    color: yellowgreen;
+    text-align: center;
+}
+
+.navbar {
+    position: sticky;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+
+#video {
+    width: 30em;
+}
+
+a:link {
+    color: tomato;
+    font-weight: bold;
+}
+
+#herbert {
+    width: 10em;
+    float: right;
+    margin-left: 10px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 6px;
+}
+
+.form label {
+    position: relative;
+    width: 100%;
+}
+
+.form label .input {
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    padding: 20px 05px 05px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+}
+
+.form label .input + span {
+    color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+    top: 12.5px;
+    font-size: 0.9em;
+}
+
+.input {
+    width: 100%;
+    font-size: medium;
+}
+
+#genre {
+    background-color: #333;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+}

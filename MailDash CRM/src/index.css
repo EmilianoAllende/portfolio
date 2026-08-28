@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f5f7fb;
+  --bg2: #eef2f8;
+  --bg3: #e3e9f2;
+  --bg4: #d7deea;
+  --border: rgba(15, 23, 42, 0.09);
+  --border2: rgba(15, 23, 42, 0.18);
+  --text: #0f172a;
+  --text2: #334155;
+  --text3: #64748b;
+  --accent: #2563eb;
+  --accent-bg: rgba(37, 99, 235, 0.1);
+  --accent-border: rgba(37, 99, 235, 0.28);
+  --green: #15803d;
+  --green-bg: rgba(34, 197, 94, 0.14);
+  --amber: #b45309;
+  --amber-bg: rgba(245, 158, 11, 0.16);
+  --red: #dc2626;
+  --red-bg: rgba(239, 68, 68, 0.14);
+}
+
+.dark {
+  --bg: #0b1220;
+  --bg2: #111b2f;
+  --bg3: #18243b;
+  --bg4: #23314c;
+  --border: rgba(148, 163, 184, 0.12);
+  --border2: rgba(148, 163, 184, 0.25);
+  --text: #e5eefb;
+  --text2: #c4d0e3;
+  --text3: #89a0bf;
+  --accent: #4f8fff;
+  --accent-bg: rgba(79, 143, 255, 0.14);
+  --accent-border: rgba(79, 143, 255, 0.34);
+  --green: #5fd388;
+  --green-bg: rgba(95, 211, 136, 0.14);
+  --amber: #f7bd59;
+  --amber-bg: rgba(247, 189, 89, 0.14);
+  --red: #ff7b7b;
+  --red-bg: rgba(255, 123, 123, 0.14);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+code {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.marko-card {
+  animation: fadeIn 0.2s ease;
+}
+
+.marko-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border2) transparent;
+}
+
+.marko-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+.marko-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--border2);
+}
+
+.marko-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

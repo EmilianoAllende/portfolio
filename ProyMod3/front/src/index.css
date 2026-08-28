@@ -1,0 +1,18 @@
+:root {
+  font-family: "Lato", sans-serif;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #34ffc981;
+
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #8d53f2;
+}
+

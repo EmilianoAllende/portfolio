@@ -1,0 +1,48 @@
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgb(0, 87, 158); 
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.form-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  width: 100%;;
+  color:rgb(1, 11, 47);
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+  width: 100%;
+}
+
+input[type="date"], input[type="time"] {
+  width: 100%; 
+  max-width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+}

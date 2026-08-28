@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #171717;
+  --secondary-color: #240041;
+  --tertiary-color: #2772db;
+  --quaternary-color: #FFD700;
+}
+
+body {
+  @apply text-primaryColor flex flex-col min-h-screen;
+  background-image: url(../../public/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-attachment:scroll;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  @apply flex flex-row;
+  background: var(--quaternary-color);
+  color: var(--primary-color);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px var(--tertiary-color);
+  align-items: center;
+}
+
+footer {
+  @apply mt-auto bg-primaryColor text-tertiaryColor;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

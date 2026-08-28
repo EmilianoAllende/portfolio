@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #08080c;
+  --card-bg: #121218;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --accent-color: #7c3aed;
+  --accent-glow: rgba(124, 58, 237, 0.5);
+  --line-color: rgba(255, 255, 255, 0.1);
+  --node-bg: #1a1a24;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.portfolio-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #fff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.portfolio-header p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Timeline Layout */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Central Line */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+  opacity: 0.3;
+}
+
+/* Container for each node */
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  margin-bottom: 4rem;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+/* Center Node / Icon Container */
+.timeline-node {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  right: -27px;
+  background-color: var(--node-bg);
+  border: 1px solid var(--card-border);
+  top: 15px;
+  border-radius: 14px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.timeline-item.right .timeline-node {
+  left: -27px;
+}
+
+/* Icon glowing style */
+.icon-container {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #6d28d9, #4f46e5);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Connecting Horizontal Line */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 42px;
+  width: 40px;
+  height: 2px;
+  background-color: var(--line-color);
+}
+
+.timeline-item.left::before {
+  right: 0;
+}
+
+.timeline-item.right::before {
+  left: 0;
+}
+
+/* The Card itself */
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  z-index: 2;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(124, 58, 237, 0.4);
+}
+
+.project-tag {
+  color: #a78bfa;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 31px;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 25px;
+  }
+  
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-item.left .timeline-node, 
+  .timeline-item.right .timeline-node {
+    left: 4px;
+  }
+  
+  .timeline-item.left::before,
+  .timeline-item.right::before {
+    left: 58px;
+    width: 22px;
+  }
+}

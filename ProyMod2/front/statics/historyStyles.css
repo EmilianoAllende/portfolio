@@ -1,0 +1,144 @@
+.title {
+    font-size: 3em;
+    color: blue;
+}
+
+.titl{
+    font-size: 1.5em;
+}
+
+#Titulos {
+    /* viewport width */
+    width: 50vw;
+    margin: auto;
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#principal {
+    font-size: 4em;
+}
+
+body {
+    background-color: wheat;
+}
+
+.section {
+    border: 2px solid red;
+    width: fit-content;
+    padding: 1.5em;
+    margin-bottom: 0.4em;
+    border-radius: 4%;
+    transition: 1.3s;
+}
+
+section:hover {
+    background-color: rgb(32, 141, 141);
+}
+
+.card-container {
+    background-color: crimson;
+    width: 93vw;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 0.6em;
+    padding: 1em 0em 0.4em 0em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+}
+
+.text {
+    text-align: justify;
+}
+
+.ImgCuerpo {
+    width: fit-content;
+    border: solid white;
+}
+
+.epigrafe {
+    color: yellowgreen;
+}
+
+#Chimy {
+    margin: auto;
+    display: flex;
+    align-content: center;
+}
+
+#neolis {
+    width: 25em;
+}
+
+#filos {
+    width: 25em;
+}
+
+#sala {
+    width: 25em;
+}
+
+#VideoSHXX {
+    width: 600px;
+}
+
+#flancho {
+    width: 17em;
+    float: right;
+    margin: 15px;
+}
+
+#footer {
+    border-color: blueviolet;
+    padding-bottom: 1em;
+    margin: auto;
+    border-radius: 8%;
+}
+
+form:focus-within {
+    background: darkred;
+    color: black;
+}
+
+.inputPie {
+    margin: 8px;
+    display: flex;
+}
+
+.inputPie:focus {
+    background: black;
+    color: aquamarine;
+}
+
+.finalBu {
+    margin: 8px;
+}
+
+a:link {
+    color: tomato;
+    font-weight: bold;
+}
+
+a:visited {
+    color:teal;
+    font-weight: lighter;
+}
+
+#Herbert {
+    width: 15em;
+    float: right;
+    margin-left: 20px;
+}
+
+#HerBiort {
+    font-size: 2em;
+}

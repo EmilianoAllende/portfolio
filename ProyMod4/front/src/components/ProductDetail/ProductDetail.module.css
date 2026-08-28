@@ -1,0 +1,21 @@
+.productDetail {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8rem;
+    color: var(--quaternary-color);
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    gap: 2rem;
+    background-color: var(--primary-color).5
+};
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+}
+
+.productCard img {
+    max-width: 25rem;
+    min-width: 20rem;
+}

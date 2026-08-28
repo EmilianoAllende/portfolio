@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello there</title>
+
+    <!--Estilos CSS-->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!--Fuente-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>        
+        <div>
+            <h1>Proyect M1: Mi Página Personal</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class= "about" >
+            <div>
+                <h2 class="title">SOBRE MÍ</h2>                
+                <p>
+                Me llamo Emiliano, soy profesor de Nivel Medio en Historia y estudio Desarrollo Web. Vivo en Argentina, en la provincia de Córdoba. Me gusta escuchar música de diversos géneros, pero principalmente rock; me gusta leer sobre casi cualquier cosa, pero en particular de ciencias, destacándose Ciencias Sociales. Voy al gimnasio como actividad recreativa, pero también porque me ayuda a no estresarme y mantenerme más saludable.
+                <br>
+                Como soy curioso, me está gustando mucho lo que aprendí hasta ahora con el curso, y me gustaría seguir aprendiendo más. Todo me causa curiosodad, y disfruto mucho encontrar la solución (de forma individual o grupal) a algún problema, pero normalmente prefiero escuchar a quienes más saben. Por otra parte, me gusta ver los roles que los demás son capaces de desarrollar en un grupo, y ajustarme para desempeñarme de manera tal que pueda suplir los puntos débiles del conjunto.
+                </p>
+            </div>
+
+            <div>
+                <i class="fa-brands fa-linkedin" style="color: #004bcc;"></i> <!--//mala práctica meter colores en html. CAMBIAR A CSS-->
+                <i class="fa-brands fa-github" style="color: #000000;"></i>
+                <i class="fa-brands fa-square-x-twitter" style="color: #000000;"></i>
+            </div>
+            <div>
+
+            </div>
+        </section>
+    
+        <section class="tecs">
+            <h2 class="title">Mis Tecnologías Favoritas</h2>
+
+            <div class="tecs_card_container">
+                <div>
+                    <img src="Assets/Images/Skills/html-5-svgrepo-com.svg" alt="" class="card_tecs">
+                </div>
+
+                <div>
+                    <img src="Assets/Images/Skills/javascript-svgrepo-com.svg" alt="" class="card_tecs" id="java_card">
+                </div>
+
+                <div>
+                    <img src="Assets/Images/Skills/css3-logo-svgrepo-com.svg" alt="" class="card_tecs">
+                </div>
+            </div>
+        </section>
+    
+        <section class="activities">
+            <h2 class="title">Mis Actividades Favoritas</h2>
+
+            <div class="activities">
+                <label for="Título">Título</label>
+                <input type="text" placeholder="Título" id="title">
+
+                <label for="Desccripción">Descripción</label>
+                <textarea type="text" placeholder="Desccripción" id="description" rows="3"></textarea>
+
+                <label for="URL de Imagen">URL de Imagen</label>
+                <input type="URL de Imagen" placeholder="URL" id="imgUrl">
+
+                <button id="addButton">AGREGAR</button>
+            </div>
+
+            <div id="card_render_area">Las tarjetas se renderizan aquí.</div>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <div>
+            Proyecto M1
+        </div>
+        <div>
+            Contacto: <a href="mailto:emilianoallende94@gmail.com">emilianoallende94@gmail.com</a>
+        </div>
+    </footer>
+
+    <script src="scripts/index.js"></script>
+    <script>
+        const buttonClick = () => {
+            const newDiv = document.createElement("div")
+        }
+        const add = document.getElementById("addButton");
+        add.addEventListener("click", buttonClick)
+    </script>
+</body>
+</html>

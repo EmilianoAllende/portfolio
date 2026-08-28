@@ -1,0 +1,104 @@
+body{
+    background-color: #3D5D7A;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Xanh Mono", monospace;
+    font-weight: 500;
+    color: #FACD00;
+    width: 90%;
+}
+
+section {
+    border: 0.15em solid red;
+    padding: 1.5em;
+    margin-bottom: 0.4em;
+    transition: 0.8s;
+}
+
+section:hover {
+    background-color: rgb(15, 0, 71);
+}
+
+input, textarea {
+    font-family: Arial;
+}
+
+.about {
+    width: 60em;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.title{
+    text-align: center;
+    font-size: 180%;
+}
+
+.card_tecs {
+    width: 5em;
+    transition: 0.5s ease-in-out;
+}
+
+.card_tecs:hover {
+    box-shadow: turquoise;
+    transform: scale(1.5);
+}
+
+.tecs_card_container {
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 50em;
+}
+
+.activities {
+    width: 50em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#addButton {
+    width: 9em;
+    height: 3em;
+    color: #73DB00;
+    background: #492D86;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lucida Sans Regular';
+    margin-top: 0.4em;
+}
+
+#card_render_area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    background-color: rgb(68, 68, 68);
+    margin: 20px;
+    padding: 20px;
+    display: grid;
+    max-width: 70vh;
+    grid-template-columns: 20%, 20%, 20%, 20%;
+    text-align: center;
+    justify-items: center;
+}
+
+.card img {
+    margin-top: 1rem;
+    width: 90%;
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
