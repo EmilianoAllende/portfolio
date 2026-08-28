@@ -50,7 +50,7 @@ const Register = () => {
 
     if (!Object.keys(validateErrors).length) {
       try {
-        await axios.post("http://localhost:3000/users/register", userData);
+        await axios.post("https://proymod3.onrender.com/users/register", userData);
         alert("Usuario creado con éxito");
         navigate(SLASH);
 

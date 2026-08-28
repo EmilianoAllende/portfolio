@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const appointmentsApi = createApi({
   reducerPath: "appointmentsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/appointments/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://proymod3.onrender.com/appointments/" }),
   endpoints: (builder) => ({
     cancelAppointment: builder.mutation({
       query: (appId) => ({
